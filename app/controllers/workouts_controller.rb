@@ -13,6 +13,10 @@ class WorkoutsController < ApplicationController
     @workouts = current_user.workouts
   end
 
+  def show
+    @workout = current_user.workouts.find(params[:id])
+  end
+
   private
 
   def workout_params
