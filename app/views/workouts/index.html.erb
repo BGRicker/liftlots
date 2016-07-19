@@ -1,4 +1,8 @@
 <% @workouts.each do |workout| %>
-  <%= current_user.email %><br>
-  <%= workout.title %>
+  <div>
+    <ul>
+      <h3><%= workout.title %></h3>
+      <li><%= current_user.email %></li>
+  </ul>
+  </div>
 <% end %>
