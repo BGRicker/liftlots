@@ -18,6 +18,6 @@ RSpec.describe StaticPagesController, :type => :request do
   it "visits root_path" do
     visit root_path
 
-    expect(page).to have_content 'Pizza'
+    expect(page).to have_content 'Your Workouts'
   end
 end

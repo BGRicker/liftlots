@@ -1,2 +1,8 @@
-<h1>Pizza</h1>
-<p>A cool website for friends</p>
+<h1>Your Workouts</h1>
+<div class="workouts-index">
+  <% if user_signed_in? %>
+    <%= render partial: "workouts/workouts" %>
+  <% else %>
+    <h4>Log in to create workouts</h4>
+  <% end %>
+</div>
