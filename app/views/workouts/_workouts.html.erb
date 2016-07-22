@@ -1,5 +1,5 @@
 <% current_user.workouts.each do |workout| %>
   <div class="workouts-each">
-    <%= workout.title %>
+    <%= link_to workout.title, workout_path(workout) %>
   </div>
 <% end %>

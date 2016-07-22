@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#index'
-  resources :workouts
+  resources :workouts do
+    resources :exercises
+  end
 end

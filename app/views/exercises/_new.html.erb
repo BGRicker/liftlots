@@ -1,0 +1,11 @@
+<div class="post-box col-xs-10 col-xs-offset-1">
+  <h1>Add Exercise to Workout</h1>
+  <%= simple_form_for @exercise, :url => workout_exercises_path(@workout) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :reps %>
+    <%= f.input :weight %>
+    <%= f.input :note %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
