@@ -21,3 +21,5 @@ RSpec.describe StaticPagesController, :type => :request do
     expect(page).to have_content 'Your Workouts'
   end
 end
+
+
