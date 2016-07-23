@@ -16,6 +16,6 @@ feature "can be viewed" do
     sign_in_as("Kanye@west.com", "pizza123123")
     create_workout("Your New Workout")
     click_on "Your New Workout"
-    expect(page).to have_content "Add Exercise to Workout"
+    expect(page).to have_content "Add Exercise to Your New Workout"
   end
 end
