@@ -13,19 +13,19 @@
   <%= form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
     <div class="field form-group">
       <%= f.label :name, class: 'col-sm-1 control-label' %>
-      <div class="col-sm-12 col-md-8 col-lg-4">
+      <div class="col-sm-12 col-md-8 col-lg-5">
         <%= f.text_field :name, class: 'form-control' %>
       </div>
     </div>
     <div class="field form-group">
       <%= f.label :reps, class: 'col-sm-1 control-label' %>
-      <div class="col-sm-12 col-md-8 col-lg-4">
+      <div class="col-sm-12 col-md-8 col-lg-5">
         <%= f.text_area :reps, class: 'form-control' %>
       </div>
     </div>
     <div class="field form-group">
       <%= f.label :note, class: 'col-sm-1 control-label' %>
-      <div class="col-sm-12 col-md-8 col-lg-4">
+      <div class="col-sm-12 col-md-8 col-lg-5">
         <%= f.text_area :note, class: 'form-control' %>
       </div>
     </div>
