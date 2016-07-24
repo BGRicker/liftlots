@@ -8,15 +8,15 @@ feature "User sees right pages" do
   end
 
   it "sees right page when logged in" do
-    sign_in_as("Kanye@west.com", "pizza123123")
-    expect(page).to have_content "Welcome, kanye@west.com"
+    sign_up_as("PizzaTown@west.com", "pizza123123")
+    expect(page).to have_content "Welcome, pizzatown@west.com"
   end
 end
 
 feature "User can sign up" do
 
   it "signs the user up" do
-    sign_up_as("Kanye@west.com", "pizza123123")
+    sign_up_as("Pizza@west.com", "pizza123123")
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
