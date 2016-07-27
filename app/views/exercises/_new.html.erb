@@ -1,14 +1,3 @@
-<!-- <div class="post&#45;box col&#45;xs&#45;11 col&#45;xs&#45;offset&#45;1"> -->
-<!--   <h1>Add Exercise to <%= @workout.title %></h1> -->
-<!--   <%= simple_form_for @exercise, :url => workout_exercises_path(@workout) do |f| %> -->
-<!--     <%= f.input :name %> -->
-<!--     <%= f.input :reps %> -->
-<!--     <%= f.input :note %> -->
-<!--     <%= f.submit %> -->
-<!--   <% end %> -->
-<!-- </div> -->
-
-
 <div class="post-box col-xs-9 col-xs-offset-1">
   <%= form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
     <div class="field form-group">
