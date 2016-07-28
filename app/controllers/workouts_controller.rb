@@ -22,8 +22,9 @@ class WorkoutsController < ApplicationController
 
   def copy
     @workout = current_user.workouts.find(params[:workout_id])
-    @new_workout = @workout.dup.save
-    redirect_to root_path
+    @new_workout = @workout.deep_clone include: :exercises
+    @new_workout.save
+    redirect_to workout_path(@new_workout)
   end
 
   private
