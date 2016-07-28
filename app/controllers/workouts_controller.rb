@@ -20,6 +20,12 @@ class WorkoutsController < ApplicationController
     @exercises = @workout.exercises
   end
 
+  def copy
+    @workout = current_user.workouts.find(params[:workout_id])
+    @new_workout = @workout.dup.save
+    redirect_to root_path
+  end
+
   private
 
   def workout_params
