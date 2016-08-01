@@ -10,12 +10,16 @@ class ExercisesController < ApplicationController
     redirect_to @workout
   end
 
+  def destroy
+    @exercise = Exercise.find(params[:id])
+    @exercise.destroy
+    redirect_to workout_path(@exercise.workout_id)
+  end
 
   private
 
   def exercise_params
     params.require(:exercise).permit(:name, :reps, :weight, :note)
-
   end
 
 end

@@ -4,12 +4,14 @@
 <div class="table-container col-xs-10 col-xs-offset-1">
   <h3><%= @workout.title %></h3>
 	<%= link_to "copy this workout", workout_copy_path(params[:id]) %>
+	<%= link_to "delete this workout", workout_path(params[:id]), method: :delete %>
   <div class="table-responsive">
     <table class="table table-striped table-bordered table-hover">
       <tr>
         <th>Name</th>
         <th>Reps</th>
         <th>Notes</th>
+        <th>destroy</th>
       </tr>
 
       <% @exercises.each do |exercise| %>
@@ -17,6 +19,9 @@
           <td><%= exercise.name %></td>
           <td><%= exercise.reps %><br></td>
           <td><%= exercise.note%><br></td>
+          <td class="col-xs-1"><%= link_to "delete", workout_exercise_path(@workout, exercise), method: :delete,
+            data: { confirm: "You sure?" } %></td>
+          
         </tr>
       <% end %>
     </table>

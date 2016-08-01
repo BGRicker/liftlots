@@ -10,6 +10,15 @@ class WorkoutsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @workout = current_user.workouts.find(params[:id])
+    if @workout.user != current_user
+      return render :text => "Not Allowed", :status => forbidden
+    end
+    @workout.destroy
+    redirect_to root_path
+  end
+
   def index
     @workouts = current_user.workouts
   end
