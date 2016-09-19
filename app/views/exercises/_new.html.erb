@@ -1,13 +1,10 @@
 <!-- need to fix form format but funcionality works -->
 <div class="post-box col-xs-9 col-xs-offset-1">
   <%= simple_form_for([@workout, @exercise], html: {class: 'form-horizontal'}) do |f| %>
-  <table>
-    <td><%= f.input :name, label: 'Name' %></td>
-    <td><%= f.input :reps, label: 'Reps' %></td>
-    <td><%= f.input :note, :as => :text, label: 'Notes' %></td>
-
-  </table>
-  <%= f.submit "Submit" %>
+    <%= f.input :name, label: 'Name' %>
+    <%= f.input :reps, label: 'Reps' %>
+    <%= f.input :note, :as => :text, label: 'Notes' %>
+    <%= f.submit "Submit" %>
   <% end %>
 </div>
 
