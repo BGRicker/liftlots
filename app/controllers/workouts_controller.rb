@@ -7,7 +7,7 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = current_user.workouts.create(workout_params)
-    redirect_to root_path
+    redirect_to workout_path(@workout)
   end
 
   def destroy

@@ -2,7 +2,7 @@
 <br>
 
 <div class="table-container col-xs-10 col-xs-offset-1">
-  <h3><%= @workout.title %></h3>
+  <h3><%= "#{@workout.title}" " - #{@workout.created_at.strftime("%b %e, %Y %l:%M %p")}"%></h3>
 	<%= link_to "copy this workout", workout_copy_path(params[:id]) %>
 	<%= link_to "delete this workout", workout_path(params[:id]), method: :delete %>
   <div class="table-responsive">
