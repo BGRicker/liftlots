@@ -1,3 +1,3 @@
 Fabricator(:workout) do
-  name  'Chest Day' 
+  title  'Chest Day' 
 end
