@@ -15,6 +15,7 @@ feature "can be viewed" do
   it "can view a workout" do
     sign_up_as("Kendrick@Lamar.com", "pizza123123")
     create_workout("Your New Workout")
+    visit root_path
     click_on "Your New Workout"
     expect(page).to have_content "Your New Workout"
   end
