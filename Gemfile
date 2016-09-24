@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'rake'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use postgresql as the database for Active Record
@@ -47,6 +49,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'rake'
 end
 
 group :development do
