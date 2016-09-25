@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - 2.3.0
+bundler_args: --without development assets tds
+script:
+  - RAILS_ENV=test
+  - bundle exec rake test
+before_script:
