@@ -1,29 +1,11 @@
+<!-- need to fix form format but funcionality works -->
 <div class="post-box col-xs-9 col-xs-offset-1">
-  <%= form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
-	    <div class="field form-group">
-	      <%= f.label :name, class: 'col-sm-1 control-label' %>
-	      <div class="col-sm-12 col-md-8 col-lg-5">
-	        <%= f.text_field :name, class: 'form-control' %>
-	      </div>
-	    </div>
-	    <div class="field form-group">
-	      <%= f.label :reps, class: 'col-sm-1 control-label' %>
-	      <div class="col-sm-12 col-md-8 col-lg-5">
-	        <%= f.text_area :reps, class: 'form-control' %>
-	      </div>
-	    </div>
-	    <div class="field form-group">
-	      <%= f.label :note, class: 'col-sm-1 control-label' %>
-	      <div class="col-sm-12 col-md-8 col-lg-5">
-	        <%= f.text_area :note, class: 'form-control' %>
-	      </div>
-	    </div>
-	    <div class="actions form-group">
-	      <div class="col-sm-offset-2 col-sm-10">
-	        <%= f.submit %>
-	      </div>
-	    </div>
-	  <% end %>
+  <%= simple_form_for([@workout, @exercise], html: {class: 'form-horizontal'}) do |f| %>
+    <%= f.input :name, label: 'Name' %>
+    <%= f.input :reps, label: 'Reps' %>
+    <%= f.input :note, :as => :text, label: 'Notes' %>
+    <%= f.submit "Submit" %>
+  <% end %>
 </div>
 
 <!-- <div class="table&#45;container col&#45;xs&#45;10 col&#45;xs&#45;offset&#45;1"> -->

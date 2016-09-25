@@ -6,8 +6,14 @@ class ExercisesController < ApplicationController
 
   def create
     @workout = Workout.find(params[:workout_id])
-    @workout.exercises.create(exercise_params)
-    redirect_to @workout
+    @exercise = @workout.exercises.create(exercise_params)
+    if @exercise.save
+      flash[:success] = 'New Workout has been created!'
+      redirect_to workout_path(@workout)
+    else
+      render :_new , status:  :unprocessable_entity
+    # currently this renders only the new page, I would like to make it so that it renders the entire view of this page when an error is present
+    end
   end
 
   def destroy
