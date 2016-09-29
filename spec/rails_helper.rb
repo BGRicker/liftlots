@@ -10,6 +10,10 @@ require 'devise'
 include Warden::Test::Helpers
 Warden.test_mode!
 
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
+end
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
