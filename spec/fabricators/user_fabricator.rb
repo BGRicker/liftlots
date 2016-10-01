@@ -1,5 +1,5 @@
 Fabricator(:user) do
   email                 "Arnold@Arnold.edu"
-  password              "password"
-  password_confirmation "password"
+  password              "#WowCoolPassword1"
+  password_confirmation "#WowCoolPassword1"
 end
