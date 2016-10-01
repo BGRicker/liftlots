@@ -23,13 +23,13 @@
           <div class="table-responsive">
             <tr>
               <td>
-                <%= f.text_field :name, as: :text, class: "form-control", rows: 1 %>
+                <%= f.text_field :name, as: :text, class: "form-control", rows: 1, placeholder: "Name" %>
               </td>
               <td>
-                <%= f.number_field :reps, as: :integer, class: "form-control", rows: 1, :collection => 1..12 %>
+                <%= f.number_field :reps, as: :integer, class: "form-control", rows: 1, :collection => 1..12, placeholder: "Reps" %>
               </td>
               <td>
-                <%= f.text_field :note, as: :text, class: "form-control", rows: 1 %>
+                <%= f.text_field :note, as: :text, class: "form-control", rows: 1, placeholder: "Notes" %>
                 <td>
                   <div class="actions form-group center-block">
                     <div class="col-sm-offset-2 col-sm-10 center-block">
