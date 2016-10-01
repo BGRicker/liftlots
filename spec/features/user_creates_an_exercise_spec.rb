@@ -17,6 +17,27 @@ feature "can be created" do
     assert(exercise.note == nil)
     assert(exercise.valid?)
   end
+
+  it "through the table UI with valid data but no note" do
+    sign_up_as("myolympia@ymca.com", "70sbig")
+    create_workout("always chest day")
+    create_exercise("always chest day", "bench press", 12)
+    expect(page).to have_content("always chest day")
+    expect(page).to have_content("bench press")
+    expect(page).to have_content(12)
+    expect(page).not_to have_content("Narnia")
+  end
+
+  it "through the table UI with valid data with note" do
+    sign_up_as("kanye@equinox.com", "90ssmall")
+    create_workout("hi I'm new here")
+    create_exercise("hi I'm new here", "squat rack for curls", 3, "tapout t shirt")
+    expect(page).to have_content("hi I'm new here")
+    expect(page).to have_content("squat rack for curls")
+    expect(page).to have_content("tapout t shirt")
+    expect(page).to have_content(3)
+    expect(page).not_to have_content("I've read up on this")
+  end
 end
 
 feature "will not be created" do
