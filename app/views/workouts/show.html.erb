@@ -1,30 +1,46 @@
-<%= render 'exercises/new' %>
-<br>
-
-<div class="table-container col-xs-10 col-xs-offset-1">
+<div class="table-container col-xs-12">
   <h3><%= "#{@workout.title}" " - #{@workout.created_at.strftime("%b %e, %Y %l:%M %p")}"%></h3>
-	<%= link_to "copy this workout", workout_copy_path(params[:id]) %>
-	<%= link_to "delete this workout", workout_path(params[:id]), method: :delete %>
+  <%= link_to "copy this workout", workout_copy_path(params[:id]) %>
+  <%= link_to "delete this workout", workout_path(params[:id]), method: :delete %>
   <div class="table-responsive">
     <table class="table table-striped table-bordered table-hover">
       <tr>
-        <th>Name</th>
-        <th>Reps</th>
-        <th>Notes</th>
-        <th>destroy</th>
+        <th class="col-md-3">Name</th>
+        <th class="col-md-1 text-center">Reps</th>
+        <th class="col-md-5">Notes</th>
+        <th class="col-md-1 text-center">destroy</th>
       </tr>
 
       <% @exercises.each do |exercise| %>
         <tr>
           <td><%= exercise.name %></td>
-          <td><%= exercise.reps %><br></td>
+          <td class="text-center"><%= exercise.reps %><br></td>
           <td><%= exercise.note%><br></td>
-          <td class="col-xs-1"><%= link_to "delete", workout_exercise_path(@workout, exercise), method: :delete,
+          <td class="col-xs-1 text-center"><%= link_to "delete", workout_exercise_path(@workout, exercise), method: :delete,
             data: { confirm: "You sure?" } %></td>
-          
+        <% end %>
+        <%= form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
+          <div class="table-responsive">
+            <tr>
+              <td>
+                <%= f.text_field :name, as: :text, class: "form-control", rows: 1 %>
+              </td>
+              <td>
+                <%= f.number_field :reps, as: :integer, class: "form-control", rows: 1, :collection => 1..12 %>
+              </td>
+              <td>
+                <%= f.text_field :note, as: :text, class: "form-control", rows: 1 %>
+                <td>
+                  <div class="actions form-group center-block">
+                    <div class="col-sm-offset-2 col-sm-10 center-block">
+                      <%= f.submit %>
+                    </div>
+                  </div>
+                </td>
+              </td>
+            </tr>
         </tr>
       <% end %>
     </table>
+          </div>
   </div>
-</div>
-
