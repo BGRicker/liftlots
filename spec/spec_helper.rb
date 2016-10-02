@@ -1,5 +1,6 @@
 require 'capybara/rspec'
 require './spec/support/features/sign_in'
+require './spec/support/controller_macros'
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
