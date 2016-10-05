@@ -43,7 +43,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.4'
   gem 'fabrication'
-  gem 'faker'
 end
 
 group :test do
