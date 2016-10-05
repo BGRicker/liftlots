@@ -1,5 +1,5 @@
 Fabricator(:user) do
-  email                 Faker::Internet.email
+  email                 "Arnold@Arnold.Gov"
   password              "#WowCoolPassword1"
   password_confirmation "#WowCoolPassword1"
 end
