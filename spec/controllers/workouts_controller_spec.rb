@@ -21,7 +21,6 @@ RSpec.describe WorkoutsController, type: :controller do
     login_user
     context "a successful create" do
       it "saves the customer object" do
-
         expect { post :create, params: { workout: Fabricate.attributes_for(:workout) } }.to change( Workout, :count).by(1)
       end
     end

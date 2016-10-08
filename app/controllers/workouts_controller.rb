@@ -7,7 +7,11 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = current_user.workouts.create(workout_params)
-    redirect_to workout_path(@workout)
+    if @workout.save
+      redirect_to @workout
+    else
+      render :new, :status => :unprocessable_entity
+    end
   end
 
   def destroy
