@@ -25,4 +25,11 @@ RSpec.describe WorkoutsController, type: :controller do
       end
     end
   end
+
+  context "User leaves title field blank" do
+    it "does not save a new exercise object" do
+      expect { post :create, params: { workout: { title: '' } } }.to change(
+      Workout, :count).by(0)
+    end
+  end
 end
