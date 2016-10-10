@@ -41,6 +41,21 @@ class WorkoutsController < ApplicationController
     redirect_to workout_path(@new_workout)
   end
 
+  def edit
+    @workout = current_user.workouts.find(params[:id])
+  end
+
+  def update
+    @workout = current_user.workouts.find(params[:id])
+    @workout.update_attributes(workout_params)
+    if @workout.save
+      redirect_to @workout
+    else
+      render :edit, :status => :unprocessable_entity
+    end
+  end
+
+
   private
 
   def workout_params
