@@ -1,5 +1,5 @@
 class WorkoutsController < ApplicationController
-  before_action :authenticate_user!, :only => [:new, :create]
+  before_action :authenticate_user!, :only => [:new, :create, :edit, :update]
 
   def new
     @workout = Workout.new
@@ -55,9 +55,8 @@ class WorkoutsController < ApplicationController
     end
   end
 
-
   private
-
+  
   def workout_params
     params.require(:workout).permit(:title)
   end
