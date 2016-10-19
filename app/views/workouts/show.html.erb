@@ -18,8 +18,11 @@
           <td><%= exercise.name %></td>
           <td class="text-center"><%= exercise.reps %><br></td>
           <td><%= exercise.note%><br></td>
-          <td class="col-xs-1 text-center"><%= link_to "delete", workout_exercise_path(@workout, exercise), method: :delete,
-            data: { confirm: "You sure?" }, :class => 'btn btn-danger' %></td>
+          <td class="col-xs-1 text-center"><%= link_to workout_exercise_path(@workout, exercise), method: :delete,
+            data: { confirm: "You sure?" } do%>
+            <span class="glyphicon glyphicon-remove"></span>
+          </td>
+          <% end %>
         <% end %>
         <%= form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
           <div class="table-responsive">
