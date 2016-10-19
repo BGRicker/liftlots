@@ -2,6 +2,7 @@
   <h3><%= "#{@workout.title}" " - #{@workout.created_at.strftime("%b %e, %Y %l:%M %p")}"%></h3>
   <%= link_to "copy this workout", workout_copy_path(params[:id]) %>
   <%= link_to "delete this workout", workout_path(params[:id]), method: :delete %>
+  <%= link_to "edit this workout", edit_workout_path(@workout) %>
   <div class="table-responsive">
     <table class="table table-striped table-bordered table-hover">
       <tr>
