@@ -1,5 +1,5 @@
 class WorkoutsController < ApplicationController
-  before_action :authenticate_user!, :only => [:new, :create]
+  before_action :authenticate_user!, :only => [:new, :create, :edit, :update]
 
   def new
     @workout = Workout.new
@@ -41,8 +41,22 @@ class WorkoutsController < ApplicationController
     redirect_to workout_path(@new_workout)
   end
 
-  private
+  def edit
+    @workout = current_user.workouts.find(params[:id])
+  end
 
+  def update
+    @workout = current_user.workouts.find(params[:id])
+    @workout.update_attributes(workout_params)
+    if @workout.save
+      redirect_to @workout
+    else
+      render :edit, :status => :unprocessable_entity
+    end
+  end
+
+  private
+  
   def workout_params
     params.require(:workout).permit(:title)
   end
