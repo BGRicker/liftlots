@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :workouts, only: [:index]
+      resources :exercises, only: [:index]
     end
   end
   resources :workouts do
