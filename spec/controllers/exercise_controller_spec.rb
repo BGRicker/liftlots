@@ -17,12 +17,14 @@ RSpec.describe ExercisesController, type: :controller do
   context "User leaves name field blank" do
     it "does not save a new exercise object" do
       expect { post :create, params: {workout_id: @workout, exercise: {name: '', reps: 12 } } }.to change( Exercise, :count).by(0)
+      expect(response).to have_http_status(422)
     end
   end
 
   context "User inputs 0 in reps" do
     it "does not save a new exercise object" do
       expect { post :create, params: { workout_id: @workout, exercise: {name: 'Chest', reps: 0 } } }.to change( Exercise, :count).by(0)
+      expect(response).to have_http_status(422)
     end
   end
 end

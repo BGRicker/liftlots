@@ -1,8 +1,8 @@
 <div class="table-container col-xs-12">
   <h3><%= "#{@workout.title}" " - #{@workout.created_at.strftime("%b %e, %Y %l:%M %p")}"%></h3>
   <div class ="btn-toolbar">
-    <%= link_to "copy this workout", workout_copy_path(params[:id]), :class => 'btn btn-primary' %>
-    <%= link_to "delete this workout", workout_path(params[:id]), :method => :delete, :data => { :confirm => 'Are you sure you want to delete this?' }, :class => 'btn btn-danger' %>
+    <%= link_to "copy this workout", workout_copy_path(@workout), :class => 'btn btn-primary' %>
+    <%= link_to "delete this workout", workout_path(@workout), :method => :delete, :data => { :confirm => 'Are you sure you want to delete this?' }, :class => 'btn btn-danger' %>
     <%= link_to "edit this workout", edit_workout_path(@workout), :class => 'btn btn-success' %>
   </div>
   <div class="table-responsive">
@@ -14,28 +14,29 @@
         <th class="col-md-1 col-xs-1 text-center">destroy</th>
       </tr>
 
-      <% @exercises.each do |exercise| %>
+      <% @workout.exercises.each do |exercise| %>
         <tr>
           <td><%= exercise.name %></td>
           <td class="text-center"><%= exercise.reps %><br></td>
           <td><%= exercise.note%><br></td>
-          <td class="col-xs-1 text-center"><%= link_to workout_exercise_path(@workout, exercise), method: :delete,
+          <td class="col-xs-1 text-center"><%= link_to [@workout, exercise], method: :delete,
             data: { confirm: "You sure?" } do%>
             <span class="glyphicon glyphicon-remove"></span>
           </td>
           <% end %>
         <% end %>
-        <%= form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
+
+        <%= simple_form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
           <div class="table-responsive">
             <tr>
               <td>
-                <%= f.text_field :name, as: :text, class: "form-control", rows: 1, placeholder: "Name" %>
+                <%= f.input :name,  placeholder: "Name", label:  false %>
               </td>
               <td>
-                <%= f.number_field :reps, as: :integer, class: "form-control", rows: 1, :collection => 1..12, placeholder: "Reps" %>
+                <%= f.input :reps, placeholder: "Reps", label: false %>
               </td>
               <td>
-                <%= f.text_field :note, as: :text, class: "form-control", rows: 1, placeholder: "Notes" %>
+                <%= f.input :note, placeholder: "Notes", label: false %>
                 <td>
                   <div class="actions form-group center-block">
                     <div class="col-sm-offset-2 col-sm-10 center-block">

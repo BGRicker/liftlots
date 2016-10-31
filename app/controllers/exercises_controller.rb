@@ -6,8 +6,13 @@ class ExercisesController < ApplicationController
 
   def create
     @workout = Workout.find(params[:workout_id])
-    @workout.exercises.create(exercise_params)
-    redirect_to @workout
+    @exercise = @workout.exercises.create(exercise_params)
+    if @exercise.save
+      redirect_to @workout
+    else
+      @workout.reload
+      render 'workouts/show', :status => :unprocessable_entity
+    end
   end
 
   def destroy
