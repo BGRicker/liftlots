@@ -10,6 +10,7 @@ class ExercisesController < ApplicationController
     if @exercise.save
       redirect_to @workout
     else
+      @workout.reload
       render 'workouts/show', :status => :unprocessable_entity
     end
   end

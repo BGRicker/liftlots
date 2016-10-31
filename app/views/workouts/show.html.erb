@@ -25,17 +25,18 @@
           </td>
           <% end %>
         <% end %>
-        <%= form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
+
+        <%= simple_form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
           <div class="table-responsive">
             <tr>
               <td>
-                <%= f.text_field :name, as: :text, class: "form-control", rows: 1, placeholder: "Name" %>
+                <%= f.input :name,  placeholder: "Name", label:  false %>
               </td>
               <td>
-                <%= f.number_field :reps, as: :integer, class: "form-control", rows: 1, :collection => 1..12, placeholder: "Reps" %>
+                <%= f.input :reps, placeholder: "Reps", label: false %>
               </td>
               <td>
-                <%= f.text_field :note, as: :text, class: "form-control", rows: 1, placeholder: "Notes" %>
+                <%= f.input :note, placeholder: "Notes", label: false %>
                 <td>
                   <div class="actions form-group center-block">
                     <div class="col-sm-offset-2 col-sm-10 center-block">
