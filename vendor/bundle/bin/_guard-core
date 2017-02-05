@@ -19,5 +19,4 @@ if ARGV.first
   end
 end
 
-gem 'guard', version
-load Gem.bin_path('guard', '_guard-core', version)
+load Gem.activate_bin_path('guard', '_guard-core', version)

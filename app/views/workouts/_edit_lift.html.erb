@@ -1,0 +1,9 @@
+<%= form_for(exercise), url: edit_workout_exercise_path do |lift| %>
+  <b>Log Lift</b><br>
+  <%= lift.text_field :reps %>
+  <%= lift.text_field :weight %>
+  <%= lift.text_field :note %>
+  <%= lift.submit %>
+<% end %>
+
+<%= lift %>
