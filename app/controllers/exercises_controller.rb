@@ -8,7 +8,7 @@ class ExercisesController < ApplicationController
     @workout = Workout.find(params[:workout_id])
     @exercise = @workout.exercises.create(exercise_params)
     if @exercise.save
-      redirect_to @workout
+      redirect_to workout_path(@exercise.workout_id)
     else
       @workout.reload
       render 'workouts/show', :status => :unprocessable_entity
@@ -19,6 +19,21 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
     @exercise.destroy
     redirect_to workout_path(@exercise.workout_id)
+  end
+
+  def edit
+    @exercise = Exercise.find(params[:id])
+  end
+
+  def update
+    @workout = Workout.find(params[:workout_id])
+    @exercise = @workout.exercises.find(params[:id])
+    @exercise.update_attributes(exercise_params)
+    if @exercise.save
+      redirect_to workout_path(@exercise.workout_id)
+    else
+      render :edit, :status => :unprocessable_entity
+    end
   end
 
   private
