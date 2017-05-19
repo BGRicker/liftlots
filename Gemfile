@@ -19,6 +19,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.4'
   gem 'fabrication'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

@@ -11,7 +11,8 @@
         <th class="col-md-3 col-xs-3">Name</th>
         <th class="col-md-1 col-xs-1 text-center">Reps</th>
         <th class="col-md-5 col-xs-5">Notes</th>
-        <th class="col-md-1 col-xs-1 text-center">destroy</th>
+        <th class="col-md-1 col-xs-1 text-center">Destroy</th>
+        <th class="col-md-1 col-xs-1 text-center">Edit</th>
       </tr>
 
       <% @workout.exercises.each do |exercise| %>
@@ -22,9 +23,12 @@
           <td class="col-xs-1 text-center"><%= link_to [@workout, exercise], method: :delete,
             data: { confirm: "You sure?" } do%>
             <span class="glyphicon glyphicon-remove"></span>
+            <td class="col-xs-1 text-center"><%= link_to edit_workout_exercise_path(exercise) do %>
+              <span class="glyphicon glyphicon-edit"></span>
           </td>
           <% end %>
         <% end %>
+      <% end %>
 
         <%= simple_form_for(@exercise, :url => workout_exercises_path(@workout), html: {class: 'form-horizontal'}) do |f| %>
           <div class="table-responsive">
